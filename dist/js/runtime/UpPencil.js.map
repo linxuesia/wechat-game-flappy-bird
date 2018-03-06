@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../js/runtime/UpPencil.js"],"names":["UpPencil"],"mappings":";;;;;;;;IAAaA,Q,WAAAA,Q","file":"UpPencil.js","sourcesContent":["export class UpPencil{\r\n\r\n}"]}

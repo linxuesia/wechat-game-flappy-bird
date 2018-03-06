@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../js/runtime/DownPencil.js"],"names":["DownPencil"],"mappings":";;;;;;;;IAAaA,U,WAAAA,U","file":"DownPencil.js","sourcesContent":["export class DownPencil{\r\n\r\n}"]}

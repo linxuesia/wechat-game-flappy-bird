@@ -1,0 +1,45 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/game.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/player/Bird.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/player/Score.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/player/PlayButton.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/base/Resources.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/player/StartButton.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/runtime/UpPencil.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/runtime/DownPencil.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/runtime/Background.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/runtime/Land.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/runtime/UpPencli.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/base/ResourceLoader.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/runtime/DownPencli.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/base/DataStore.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/Director.js" />
+        <item url="file://$PROJECT_DIR$/dist/main.js" />
+        <item url="file://$PROJECT_DIR$/dist/js/base/Sprite.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/game.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/player/Bird.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/player/Score.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/player/PlayButton.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/base/Resources.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/player/StartButton.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/runtime/UpPencil.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/runtime/DownPencil.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/runtime/Background.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/runtime/Land.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/runtime/UpPencli.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/base/ResourceLoader.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/runtime/DownPencli.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/base/DataStore.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/Director.js" />
+      <root url="file://$PROJECT_DIR$/dist/main.js" />
+      <root url="file://$PROJECT_DIR$/dist/js/base/Sprite.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

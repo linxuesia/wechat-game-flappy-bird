@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../js/player/Score.js"],"names":["Score"],"mappings":";;;;;;;;IAAaA,K,WAAAA,K","file":"Score.js","sourcesContent":["export class Score{\r\n    \r\n}"]}

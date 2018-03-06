@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../js/player/Bird.js"],"names":["Bird"],"mappings":";;;;;;;;IAAaA,I,WAAAA,I","file":"Bird.js","sourcesContent":["export class Bird{\r\n    \r\n}"]}
