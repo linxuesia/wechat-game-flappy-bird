@@ -15,6 +15,8 @@ var _DataStore = require("./js/base/DataStore.js");
 
 var _Director = require("./js/Director.js");
 
+var _Land = require("./js/runtime/Land.js");
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Main = exports.Main = function () {
@@ -50,7 +52,7 @@ var Main = exports.Main = function () {
         value: function init() {
 
             //把背景类的实例存入dataStore
-            this.dataStore.put('background', new _Background.Background());
+            this.dataStore.put('background', _Background.Background).put('Land', _Land.Land);
 
             _Director.Director.getInstance().run();
         }

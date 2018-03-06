@@ -2,6 +2,7 @@ import {ResourceLoader} from "./js/base/ResourceLoader.js";
 import {Background} from "./js/runtime/Background.js";
 import {DataStore} from "./js/base/DataStore.js";
 import {Director} from "./js/Director.js";
+import {Land} from "./js/runtime/Land.js";
 
 export class Main{
 
@@ -28,7 +29,9 @@ export class Main{
     init(){
 
         //把背景类的实例存入dataStore
-        this.dataStore.put('background', new Background());
+        this.dataStore
+            .put('background', Background)
+            .put('Land',Land);
 
         Director.getInstance().run();
 

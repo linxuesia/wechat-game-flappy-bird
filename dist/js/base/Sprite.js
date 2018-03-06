@@ -49,8 +49,8 @@ var Sprite = exports.Sprite = function () {
             var srcH = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : this.srcH;
             var x = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : this.x;
             var y = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : this.y;
-            var height = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : this.height;
-            var width = arguments.length > 8 && arguments[8] !== undefined ? arguments[8] : this.width;
+            var width = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : this.width;
+            var height = arguments.length > 8 && arguments[8] !== undefined ? arguments[8] : this.height;
 
             this.ctx.drawImage(img, srcX, srcY, srcW, srcH, x, y, width, height);
         }
