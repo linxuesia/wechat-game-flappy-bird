@@ -3,6 +3,7 @@ import {Background} from "./js/runtime/Background.js";
 import {DataStore} from "./js/base/DataStore.js";
 import {Director} from "./js/Director.js";
 import {Land} from "./js/runtime/Land.js";
+import {Birds} from "./js/player/Birds.js";
 
 export class Main{
 
@@ -23,17 +24,36 @@ export class Main{
     onResourceFirstLoaded(map){
         this.dataStore.ctx = this.ctx;
         this.dataStore.res = map;
+        this.director = Director.getInstance();
         this.init();
     }
 
     init(){
 
-        //把背景类的实例存入dataStore
+        //游戏是否结束
+        this.director.isGameOver = false;
+        //把类的实例存入dataStore
         this.dataStore
+            .put('pencils',[])
             .put('background', Background)
-            .put('Land',Land);
+            .put('Land',Land)
+            .put('birds',Birds);
 
-        Director.getInstance().run();
+        this.registerEvent();
 
+        this.director.createPencil();
+        this.director.run();
+
+    }
+
+    registerEvent(){
+        this.canvas.addEventListener('touchstart',e=>{
+            e.preventDefault();
+            if(this.director.isGameOver){
+                this.init();
+            }else{
+                this.director.birdsEvent();
+            }
+        });
     }
 }

@@ -17,6 +17,8 @@ var _Director = require("./js/Director.js");
 
 var _Land = require("./js/runtime/Land.js");
 
+var _Birds = require("./js/player/Birds.js");
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Main = exports.Main = function () {
@@ -45,16 +47,36 @@ var Main = exports.Main = function () {
         value: function onResourceFirstLoaded(map) {
             this.dataStore.ctx = this.ctx;
             this.dataStore.res = map;
+            this.director = _Director.Director.getInstance();
             this.init();
         }
     }, {
         key: "init",
         value: function init() {
 
-            //把背景类的实例存入dataStore
-            this.dataStore.put('background', _Background.Background).put('Land', _Land.Land);
+            //游戏是否结束
+            this.director.isGameOver = false;
+            //把类的实例存入dataStore
+            this.dataStore.put('pencils', []).put('background', _Background.Background).put('Land', _Land.Land).put('birds', _Birds.Birds);
 
-            _Director.Director.getInstance().run();
+            this.registerEvent();
+
+            this.director.createPencil();
+            this.director.run();
+        }
+    }, {
+        key: "registerEvent",
+        value: function registerEvent() {
+            var _this2 = this;
+
+            this.canvas.addEventListener('touchstart', function (e) {
+                e.preventDefault();
+                if (_this2.director.isGameOver) {
+                    _this2.init();
+                } else {
+                    _this2.director.birdsEvent();
+                }
+            });
         }
     }]);
 

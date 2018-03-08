@@ -11,6 +11,8 @@ var _get = function get(object, property, receiver) { if (object === null) objec
 
 var _Sprite2 = require("../base/Sprite.js");
 
+var _Director = require("../Director.js");
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -30,7 +32,7 @@ var Land = exports.Land = function (_Sprite) {
 
         _this.landX = 0;
         //地板的水平移动速度
-        _this.landSpeed = 2;
+        _this.landSpeed = _Director.Director.getInstance().speed;
         return _this;
     }
 
