@@ -8,12 +8,12 @@ import {Birds} from "./js/player/Birds.js";
 export class Main{
 
     constructor(){
+
         this.canvas = document.getElementById('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.dataStore = DataStore.getInstance();
         const loader = ResourceLoader.create();
         loader.onLoaded(map=>this.onResourceFirstLoaded(map));
-
 
     }
 

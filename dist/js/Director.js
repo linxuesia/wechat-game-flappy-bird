@@ -36,16 +36,65 @@ var Director = exports.Director = function () {
     }, {
         key: "birdsEvent",
         value: function birdsEvent() {
-            for (var i; i <= 2; i++) {
+            for (var i = 0; i <= 2; i++) {
                 this.dataStore.get('birds').y[i] = this.dataStore.get('birds').birdsY[i];
             }
             this.dataStore.get('birds').time = 0;
+        }
+
+        /**
+         * 判断小鸟是否撞击铅笔
+         * @param bird
+         * @param pencil
+         */
+
+    }, {
+        key: "check",
+
+
+        //判断小鸟是否撞击地板和铅笔
+        value: function check() {
+            var birds = this.dataStore.get('birds');
+            var land = this.dataStore.get('Land');
+            var pencils = this.dataStore.get('pencils');
+            if (birds.birdsY[0] + birds.birdsHeight[0] >= land.y) {
+                this.isGameOver = true;
+                return;
+            }
+            console.log(birds);
+            //创建小鸟的边框模型
+            var birdsBorder = {
+                top: birds.y[0],
+                left: birds.birdsX[0],
+                bottom: birds.birdsY[0] + birds.birdsHeight[0],
+                right: birds.birdsX[0] + birds.birdsWidth[0]
+            };
+
+            var length = pencils.length;
+            for (var i = 0; i < length; i++) {
+
+                var pencil = pencils[i];
+                var pencilBorder = {
+                    top: pencil.y,
+                    left: pencil.x,
+                    bottom: pencil.y + pencil.height,
+                    right: pencil.x + pencil.width
+                };
+
+                if (Director.isStrike(birdsBorder, pencilBorder)) {
+                    console.log('啊！撞到铅笔了！');
+                    console.log(birdsBorder, pencilBorder);
+                    this.isGameOver = true;
+                    return;
+                }
+            }
         }
     }, {
         key: "run",
         value: function run() {
             var _this = this;
 
+            this.check();
             if (!this.isGameOver) {
                 //绘制背景
                 this.dataStore.get('background').draw();
@@ -87,6 +136,15 @@ var Director = exports.Director = function () {
                 Director.instance = new Director();
             }
             return Director.instance;
+        }
+    }, {
+        key: "isStrike",
+        value: function isStrike(bird, pencil) {
+            var flag = false;
+            if (bird.top > pencil.bottom || bird.bottom < pencil.top || bird.right < pencil.left || bird.left < pencil.right) {
+                flag = true;
+            }
+            return flag;
         }
     }]);
 
