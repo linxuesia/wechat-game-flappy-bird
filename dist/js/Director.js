@@ -61,7 +61,7 @@ var Director = exports.Director = function () {
                 this.isGameOver = true;
                 return;
             }
-            console.log(birds);
+
             //创建小鸟的边框模型
             var birdsBorder = {
                 top: birds.y[0],
@@ -83,8 +83,7 @@ var Director = exports.Director = function () {
 
                 if (Director.isStrike(birdsBorder, pencilBorder)) {
                     console.log('啊！撞到铅笔了！');
-                    console.log(birdsBorder, pencilBorder);
-                    this.isGameOver = true;
+                    // this.isGameOver = true;
                     return;
                 }
             }
@@ -141,10 +140,14 @@ var Director = exports.Director = function () {
         key: "isStrike",
         value: function isStrike(bird, pencil) {
             var flag = false;
-            if (bird.top > pencil.bottom || bird.bottom < pencil.top || bird.right < pencil.left || bird.left < pencil.right) {
+
+            console.log(bird.top + '/' + pencil.bottom, bird.bottom + '/' + pencil.top, bird.right + '/' + pencil.left, bird.left + '/' + pencil.right);
+            console.log(bird.top > pencil.bottom, bird.bottom < pencil.top, bird.right > pencil.left, bird.left > pencil.right);
+            if (bird.top > pencil.bottom || bird.bottom < pencil.top || bird.right < pencil.left || bird.left > pencil.right) {
+                console.log('ok');
                 flag = true;
             }
-            return flag;
+            return !flag;
         }
     }]);
 
