@@ -38,23 +38,16 @@ export class Director{
      * @param pencil
      */
     static isStrike(bird,pencil){
-        let flag = false;
 
-        console.log(bird.top+'/'+pencil.bottom,bird.bottom+'/'+pencil.top,
-            bird.right+'/'+pencil.left,bird.left+'/'+pencil.right,
-            );
-        console.log(bird.top>pencil.bottom
-            ,bird.bottom<pencil.top
-            ,bird.right>pencil.left
-            ,bird.left>pencil.right);
+        let flag = false;
         if(bird.top>pencil.bottom
             ||bird.bottom<pencil.top
             ||bird.right<pencil.left
             ||bird.left>pencil.right){
-            console.log('ok')
             flag = true;
         }
         return !flag;
+
     }
 
     //判断小鸟是否撞击地板和铅笔
@@ -62,6 +55,7 @@ export class Director{
         const birds = this.dataStore.get('birds');
         const land   = this.dataStore.get('Land');
         const pencils = this.dataStore.get('pencils');
+        const score = this.dataStore.get('score');
         if(birds.birdsY[0]+birds.birdsHeight[0]>=land.y){
             this.isGameOver = true;
             return;
@@ -94,6 +88,12 @@ export class Director{
 
         }
 
+        //加分逻辑
+        if(birds.birdsX[0]>pencils[0].x+pencils[0].width&&score.isScore){
+            this.isScore = false;
+            score.scoreNumber++;
+        }
+
     }
 
     run(){
@@ -106,6 +106,7 @@ export class Director{
             if(pencils[0].x + pencils[0].width <= 0&&pencils.length===4){
                 pencils.shift();
                 pencils.shift();
+                this.dataStore.get('score').isScore = true;
             }
 
             if(pencils[0].x <= (window.innerWidth - pencils[0].width)/2&&pencils.length===2){
@@ -120,6 +121,9 @@ export class Director{
             //绘制草地
             this.dataStore.get('Land').draw();
 
+            //绘制分数
+            this.dataStore.get('score').draw();
+
             //绘制小鸟
             this.dataStore.get('birds').draw();
 
@@ -127,9 +131,13 @@ export class Director{
             this.dataStore.put('timer',timer);
 
         }else{
+            console.log('游戏结束');
+            this.dataStore.get('startButton').draw();
             cancelAnimationFrame(this.dataStore.get('timer'));
             this.dataStore.destroy();
         }
+
+
 
     }
 }
