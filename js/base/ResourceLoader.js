@@ -1,12 +1,13 @@
 //资源加载完毕之后 再开始渲染canvas
 import {Resources} from "./Resources.js";
+import { DataStore } from "./DataStore.js";
 
 export class ResourceLoader{
 
     constructor(){
         this.map = new Map(Resources);
         for(let [key,value] of this.map){
-            let image = new Image();
+            let image = wx.createImage();
             image.src = value;
             this.map.set(key,image);
         }

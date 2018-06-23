@@ -28,7 +28,7 @@ var Land = exports.Land = function (_Sprite) {
         var image = _Sprite2.Sprite.getImage('land');
 
         //地板的水平变化坐标
-        var _this = _possibleConstructorReturn(this, (Land.__proto__ || Object.getPrototypeOf(Land)).call(this, image, 0, 0, image.width, image.height, 0, window.innerHeight - image.height, image.width, image.height));
+        var _this = _possibleConstructorReturn(this, (Land.__proto__ || Object.getPrototypeOf(Land)).call(this, image, 0, 0, image.width, image.height, 0, DataStore.getInstance().canvas.height - image.height, image.width, image.height));
 
         _this.landX = 0;
         //地板的水平移动速度
@@ -40,7 +40,7 @@ var Land = exports.Land = function (_Sprite) {
         key: "draw",
         value: function draw() {
             this.landX += this.landSpeed;
-            if (this.landX > this.srcW - window.innerWidth) {
+            if (this.landX > this.srcW - DataStore.getInstance().canvas.width) {
                 this.landX = 0;
             }
             _get(Land.prototype.__proto__ || Object.getPrototypeOf(Land.prototype), "draw", this).call(this, this.img, this.srcX, this.srcY, this.srcW, this.srcH, -this.landX, this.y, this.width, this.height);

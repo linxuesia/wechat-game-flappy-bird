@@ -20,7 +20,7 @@ var Background = exports.Background = function (_Sprite) {
         _classCallCheck(this, Background);
 
         var image = _Sprite2.Sprite.getImage('background');
-        return _possibleConstructorReturn(this, (Background.__proto__ || Object.getPrototypeOf(Background)).call(this, image, 0, 0, image.width, image.height, 0, 0, window.innerWidth, window.innerHeight));
+        return _possibleConstructorReturn(this, (Background.__proto__ || Object.getPrototypeOf(Background)).call(this, image, 0, 0, image.width, image.height, 0, 0, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height));
     }
 
     return Background;

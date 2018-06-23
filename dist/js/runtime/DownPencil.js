@@ -33,7 +33,7 @@ var DownPencil = exports.DownPencil = function (_Pencil) {
         key: "draw",
         value: function draw() {
             //为上下铅笔设置一个固定的间隙 从而算出下铅笔的位置
-            var gap = window.innerHeight / 5;
+            var gap = DataStore.getInstance().canvas.height / 5;
             this.y = this.top + gap;
 
             _get(DownPencil.prototype.__proto__ || Object.getPrototypeOf(DownPencil.prototype), "draw", this).call(this);

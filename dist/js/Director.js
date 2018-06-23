@@ -26,8 +26,8 @@ var Director = exports.Director = function () {
     _createClass(Director, [{
         key: "createPencil",
         value: function createPencil() {
-            var minTop = window.innerHeight / 8;
-            var maxTop = window.innerHeight / 2;
+            var minTop = DataStore.getInstance().canvas.height / 8;
+            var maxTop = DataStore.getInstance().canvas.height / 2;
             var top = minTop + Math.random() * (maxTop - minTop);
 
             this.dataStore.get('pencils').push(new _UpPencil.UpPencil(top));
@@ -104,7 +104,7 @@ var Director = exports.Director = function () {
                     pencils.shift();
                 }
 
-                if (pencils[0].x <= (window.innerWidth - pencils[0].width) / 2 && pencils.length === 2) {
+                if (pencils[0].x <= (DataStore.getInstance().canvas.width - pencils[0].width) / 2 && pencils.length === 2) {
                     this.createPencil();
                 }
 

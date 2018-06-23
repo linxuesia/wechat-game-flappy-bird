@@ -33,9 +33,9 @@ var Birds = exports.Birds = function (_Sprite) {
         _this.clippingY = [10, 10, 10];
         _this.clippingWidth = [34, 34, 34];
         _this.clippingHeight = [24, 24, 24];
-        var birdX = window.innerWidth / 4;
+        var birdX = DataStore.getInstance().canvas.width / 4;
         _this.birdsX = [birdX, birdX, birdX];
-        var birdY = window.innerHeight / 2;
+        var birdY = DataStore.getInstance().canvas.height / 2;
         _this.birdsY = [birdY, birdY, birdY];
         _this.y = [birdY, birdY, birdY];
         var birdWidth = 34;

@@ -16,8 +16,8 @@ export class Director{
     }
 
     createPencil(){
-        const minTop = window.innerHeight/8;
-        const maxTop = window.innerHeight/2;
+        const minTop = DataStore.getInstance().canvas.height/8;
+        const maxTop = DataStore.getInstance().canvas.height/2;
         const top = minTop + Math.random()*(maxTop - minTop);
 
         this.dataStore.get('pencils').push(new UpPencil(top));
@@ -82,7 +82,7 @@ export class Director{
 
             if(Director.isStrike(birdsBorder,pencilBorder)){
                 console.log('啊！撞到铅笔了！');
-                // this.isGameOver = true;
+                this.isGameOver = true;
                 return;
             }
 
@@ -109,7 +109,7 @@ export class Director{
                 this.dataStore.get('score').isScore = true;
             }
 
-            if(pencils[0].x <= (window.innerWidth - pencils[0].width)/2&&pencils.length===2){
+            if(pencils[0].x <= (DataStore.getInstance().canvas.width - pencils[0].width)/2&&pencils.length===2){
                 this.createPencil();
             }
 

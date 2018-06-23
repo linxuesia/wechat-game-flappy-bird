@@ -28,7 +28,7 @@ var Pencil = exports.Pencil = function (_Sprite) {
     function Pencil(image, top) {
         _classCallCheck(this, Pencil);
 
-        var _this = _possibleConstructorReturn(this, (Pencil.__proto__ || Object.getPrototypeOf(Pencil)).call(this, image, 0, 0, image.width, image.height, window.innerWidth, 0, image.width, image.height));
+        var _this = _possibleConstructorReturn(this, (Pencil.__proto__ || Object.getPrototypeOf(Pencil)).call(this, image, 0, 0, image.width, image.height, DataStore.getInstance().canvas.width, 0, image.width, image.height));
 
         _this.top = top;
         return _this;

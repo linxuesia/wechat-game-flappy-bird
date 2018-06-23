@@ -11,7 +11,7 @@ export class Main{
 
     constructor(){
 
-        this.canvas = document.getElementById('canvas');
+        this.canvas = wx.createCanvas();
         this.ctx = this.canvas.getContext('2d');
         this.dataStore = DataStore.getInstance();
         const loader = ResourceLoader.create();
@@ -24,6 +24,7 @@ export class Main{
      * @param map=>需要加载的图片资源
      */
     onResourceFirstLoaded(map){
+        this.dataStore.canvas = this.canvas;
         this.dataStore.ctx = this.ctx;
         this.dataStore.res = map;
         this.director = Director.getInstance();
@@ -51,13 +52,21 @@ export class Main{
     }
 
     registerEvent(){
-        this.canvas.addEventListener('touchstart',e=>{
-            e.preventDefault();
-            if(this.director.isGameOver){
-                this.init();
-            }else{
-                this.director.birdsEvent();
-            }
-        });
+        // this.canvas.addEventListener('touchstart',e=>{
+        //     e.preventDefault();
+        //     if(this.director.isGameOver){
+        //         this.init();
+        //     }else{
+        //         this.director.birdsEvent();
+        //     }
+        // });
+
+        wx.onTouchStart(()=>{
+          if (this.director.isGameOver) {
+            this.init();
+          } else {
+            this.director.birdsEvent();
+          }
+        })
     }
 }
